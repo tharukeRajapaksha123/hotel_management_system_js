@@ -2,6 +2,11 @@ const http = require("http")
 const mongoose = require("mongoose")
 const express = require("express")
 
+
+const customerController = require("./controllers/customer_controller")
+const employeeController = require("./controllers/employee_controller")
+const foodController = require("./controllers/food_controller")
+
 const router = express()
 const chalk = require('chalk');
 
@@ -55,8 +60,9 @@ const StartServer = () => {
     });
 
     /** Routes */
-
-
+    router.use("/customer-controller",customerController)
+    router.use("/employee-manager",employeeController)
+    router.use("/food-controller",foodController)
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ hello: 'world' }));
 
