@@ -6,6 +6,12 @@ const express = require("express")
 const customerController = require("./controllers/customer_controller")
 const employeeController = require("./controllers/employee_controller")
 const foodController = require("./controllers/food_controller")
+const orderController = require("./controllers/order_controller")
+const reservationController = require("./controllers/reservation_controller")
+const transportController = require("./controllers/transport_controller")
+const vehicleController = require("./controllers/vehicle_controller")
+const weddingController = require("./controllers/wedding_controller")
+
 
 const router = express()
 const chalk = require('chalk');
@@ -63,6 +69,11 @@ const StartServer = () => {
     router.use("/customer-controller",customerController)
     router.use("/employee-manager",employeeController)
     router.use("/food-controller",foodController)
+    router.use("/order-controller",orderController)
+    router.use("/reservation-controller",reservationController)
+    router.use("/transport-controller",transportController  )
+    router.use("/vehicle-controller",vehicleController)
+    router.use("/wedding-controller",weddingController)
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ hello: 'world' }));
 
@@ -79,3 +90,4 @@ const StartServer = () => {
 
     http.createServer(router).listen(port, () => info(`Server is running on port ${port}`));
 } 
+
