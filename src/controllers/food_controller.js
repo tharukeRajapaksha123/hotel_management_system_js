@@ -7,13 +7,14 @@ const mongoose = require("mongoose");
 
 //create
 router.post("/create-food-item", (req, res, next) => {
-   const { name, available, price } = req.body;
+   const { name, available, price,image } = req.body;
    const r = new Food_Item(
       {
          _id: new mongoose.Types.ObjectId(),
          name,
          price,
          available,
+         image,
       }
    );
    return r

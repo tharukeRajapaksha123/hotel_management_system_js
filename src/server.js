@@ -11,7 +11,7 @@ const reservationController = require("./controllers/reservation_controller")
 const transportController = require("./controllers/transport_controller")
 const vehicleController = require("./controllers/vehicle_controller")
 const weddingController = require("./controllers/wedding_controller")
-
+const roomController = require("./controllers/room_controller")
 
 const router = express()
 const chalk = require('chalk');
@@ -74,6 +74,7 @@ const StartServer = () => {
     router.use("/transport-controller",transportController  )
     router.use("/vehicle-controller",vehicleController)
     router.use("/wedding-controller",weddingController)
+    router.use("/room-controller",roomController)
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ hello: 'world' }));
 
