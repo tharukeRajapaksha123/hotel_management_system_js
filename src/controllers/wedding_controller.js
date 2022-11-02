@@ -5,14 +5,17 @@ const Wedding = require("../models/wedding_model");
 const mongoose = require("mongoose");
 //create
 router.post("/create-wedding", (req, res, next) => {
-   const { customer_id, wedding_location, num_of_guests, date } = req.body;
+   const { customer_id, wedding_location, num_of_guests, date, customer_name, customer_email,hall_type } = req.body;
    const r = new Wedding(
       {
          _id: new mongoose.Types.ObjectId(),
          customer_id,
+         customer_name,
+         customer_email,
          wedding_location,
          num_of_guests,
          date,
+         hall_type
       }
    );
    return r

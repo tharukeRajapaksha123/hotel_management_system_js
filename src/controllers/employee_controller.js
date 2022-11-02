@@ -7,22 +7,25 @@ const mongoose = require("mongoose");
 
 //create
 router.post("/create-employee", (req, res, next) => {
-   const { name, age, address, salary, nic_number,role } = req.body;
+   const { name, age, address, salary, nic_number, role,joinedDate,mobileNumber } = req.body;
    const employee = new Employee(
       {
          _id: new mongoose.Types.ObjectId(),
          name,
          age,
+         joinedDate,
+         mobileNumber,
          address,
          salary,
          nic_number,
-         transaction_date: Date.now(),role
+         transaction_date: Date.now(),
+         role
       }
    );
    return employee
       .save()
       .then((employee) => res.status(200).json({ employee }))
-      .catch((error) => res.status(500).json({ error }));
+      .catch(error => res.status(500).json({ error }));
 })
 
 //read
