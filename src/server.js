@@ -82,7 +82,7 @@ const StartServer = () => {
     router.use((req, res, next) => {
         const error = new Error('Not found');
 
-        error(error);
+        
 
         res.status(404).json({
             message: error.message

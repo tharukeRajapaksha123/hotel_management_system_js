@@ -7,12 +7,14 @@ const mongoose = require("mongoose");
 
 //create
 router.post("/create-transport-tour", (req, res, next) => {
-   const { vehicle_id, customer_id, employee_id } = req.body;
+   const { vehicle_type, customer_name, location_address,mobile_number ,employee_id } = req.body;
    const r = new Transport_Tour(
       {
          _id: new mongoose.Types.ObjectId(),
-         vehicle_id,
-         customer_id,
+         vehicle_type,
+         customer_name,
+         location_address,
+         mobile_number,
          date: Date.now(),
          employee_id
       }
